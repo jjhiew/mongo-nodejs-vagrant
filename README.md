@@ -39,7 +39,7 @@ If `node -v` and `mongo --version` return with version numbers then you're **don
 Troubleshooting in Windows
 ---------------
 
-On my Windows 8.1 machine, I initially ran into an error when `vagrant up`-ing that was along the lines of **"fileutils unlink: permission denied"**.  If you get this error, try the following:
+If you run into an error along the lines of **"fileutils unlink: permission denied"**, you can try the following:
 
 - find your `~/.vagrant.d` folder, mine was located `C:/Users/ME/.vagrant.d`
 - disable the READ-ONLY flag recursively for the `~/.vagrant.d` folder
