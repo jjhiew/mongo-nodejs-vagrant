@@ -1,4 +1,4 @@
-A Lightweight NodeJS and Mongo Dev Machine using Vagrant (Windows)
+A Lightweight NodeJS and Mongo Dev Machine using Vagrant (that also works in Windows)
 ======================================================================
 
 This is a Vagrant project that will create a barebones Ubuntu 14.04 x64 virtual machine with NodeJS and MongoDB installed.  Provisioning will be done using chef-solo and the vagrant-librarian plugin.
