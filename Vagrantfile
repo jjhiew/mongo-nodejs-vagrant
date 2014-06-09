@@ -15,29 +15,22 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
-
-  # Create a private network, which allows host-only access to the machine
-  # using a specific IP.
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
   config.vm.network "private_network", ip: "192.168.33.10"
 
-  # Share an additional folder to the guest VM. The first argument is
-  # the path on the host to the actual folder. The second argument is
-  # the path on the guest to mount the folder. And the optional third
-  # argument is a set of non-required options.
-  # config.vm.synced_folder "app", "/home/vagrant/app", "app"
 
-  # Provider-specific configuration so you can fine-tune various
-  # backing providers for Vagrant. These expose provider-specific options.
-  # Example for VirtualBox:
-  #
+  # Set shared folder
+  config.vm.synced_folder "app", "/home/vagrant/app"
+
+  # Modify VM memory and enable symlink creation in the shared folder
   config.vm.provider "virtualbox" do |vb|
-  
-    # Use VBoxManage to customize the VM. For example to change memory:
     vb.customize ["modifyvm", :id, "--memory", "512"]
-    #vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/app", "1"]
+    #vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/:SHARE_NAME", "1"]
   end
   
+
+  # PROVISIONING
+
   # Make sure that the newest version of Chef have been installed
   config.vm.provision :shell, :path => "bootstrap.sh"
   
@@ -50,5 +43,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "nodejs"
     chef.add_recipe "mongodb"
   end
+
+  # Install Express and Express Generator
+  config.vm.provision :shell, :path => "expressjs_install.sh"
 
 end

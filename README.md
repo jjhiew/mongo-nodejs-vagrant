@@ -35,12 +35,34 @@ Launch, Login and Verify
 
 If `node -v` and `mongo --version` return with version numbers then you're **done!** You should be ready to rock.
   
-  
+
+Setting up ExpressJS
+----------------------------------------
+
+Login to your Vagrant environment using `vagrant ssh` then run ...
+
+```bash
+	$: cd /home/vagrant
+	$: express app 			# skip this step if you already have your source
+	$: cd app 
+	$: sudo npm install --no-bin-links
+	#: npm start
+```
+
+Open up your browser and go to [http://localhost:3000](http://localhost:3000) and you should see the Express welcome page.
+
+You will want to edit the `package.json` file and add an entry for the MongoDB driver you intend to use.  Be sure to re-run `sudo npm install --no-bin-links` again once you've added it in.  
+
+The `--no-bin-links` flag is used to get around the issue of symlinking in shared folders with Virtualbox.  
+
+
 Troubleshooting in Windows
----------------
+--------------------------
 
-If you run into an error along the lines of **"fileutils unlink: permission denied"**, you can try the following:
+If you run into an error along the lines of **"fileutils unlink: permission denied"**, it might be because you commented out the provisioning section in the Vagrantfile and ran a `vagrant provision`.  This causes all sorts of problems with the `vagrant-librarian-chef-nochef` plugin.  
 
-- find your `~/.vagrant.d` folder, mine was located `C:/Users/ME/.vagrant.d`
-- disable the READ-ONLY flag recursively for the `~/.vagrant.d` folder
-- set permissions for **EVERYONE** to **full control** on the `~/.vagrant.d` folder
+Steps to recover:
+
+1. destroy your vagrant environment
+2. delete the `cookbooks`, `tmp`, and `Cheffile.lock` files
+3. run `vagrant up` 
