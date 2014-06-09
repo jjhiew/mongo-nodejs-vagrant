@@ -38,13 +38,12 @@ If `node -v`, `express -V` and `mongo --version` return with version numbers the
   
 
 Setting up your ExpressJS App
-----------------------------------------
+-----------------------------
 
-Login to your Vagrant environment using `vagrant ssh` then run ...
+If you already have source files, you can put it in the `app` folder.  Login to your Vagrant environment using `vagrant ssh` then run ...
 
 ```bash
 	$: cd /home/vagrant
-	$: mkdir app 			# put your Express source here
 	$: express app 			# skip this step if you already have your source
 	$: cd app 
 	$: sudo npm install --no-bin-links
