@@ -47,7 +47,7 @@ Login to your Vagrant environment using `vagrant ssh` then run ...
 	$: express app 			# skip this step if you already have your source
 	$: cd app 
 	$: sudo npm install --no-bin-links
-	#: npm start
+	$: npm start
 ```
 
 Open up your browser and go to [http://localhost:3000](http://localhost:3000) and you should see the Express welcome page.
