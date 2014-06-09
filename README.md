@@ -1,7 +1,7 @@
-A Lightweight NodeJS and Mongo Dev Machine using Vagrant (that also works in Windows)
+A Lightweight NodeJS, ExpressJS and MongoDB Dev Machine using Vagrant (that also works in Windows)
 ======================================================================
 
-This is a Vagrant project that will create a barebones Ubuntu 14.04 x64 virtual machine with [NodeJS](http://nodejs.org/) and [MongoDB](http://www.mongodb.org/) installed.  Provisioning will be done using chef-solo and the vagrant-librarian plugin.
+This is a Vagrant project that will create a barebones Ubuntu 14.04 x64 virtual machine with [NodeJS](http://nodejs.org/), [ExpressJS](http://expressjs.com/) and [MongoDB](http://www.mongodb.org/) installed.  Provisioning will be done using chef-solo and the vagrant-librarian plugin.
 
 **Developed using a Windows 8.1 x64 Professional host machine**
 
@@ -31,12 +31,13 @@ Launch, Login and Verify
 	$: vagrant ssh
 	$: node -v
 	$: mongo --version
+	$: express -V
 ```
 
-If `node -v` and `mongo --version` return with version numbers then you're **done!** You should be ready to rock.
+If `node -v`, `express -V` and `mongo --version` return with version numbers then you're **done!** You should be ready to rock.
   
 
-Setting up ExpressJS
+Setting up your ExpressJS App
 ----------------------------------------
 
 Login to your Vagrant environment using `vagrant ssh` then run ...
