@@ -44,6 +44,7 @@ Login to your Vagrant environment using `vagrant ssh` then run ...
 
 ```bash
 	$: cd /home/vagrant
+	$: mkdir app 			# put your Express source here
 	$: express app 			# skip this step if you already have your source
 	$: cd app 
 	$: sudo npm install --no-bin-links
